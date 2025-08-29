@@ -1,7 +1,8 @@
 # NoiseCutMix: A Novel Data Augmentation Approach by Mixing Estimated Noise in Diffusion Models [[S.Takezaki+, ICCVW]()]
 
-Shumpei Takezaki<sup>*</sup>, Ryoma Bise, Shinnosuke Matsuo<sup>*</sup>  
+Shumpei Takezaki\*, Ryoma Bise, Shinnosuke Matsuo\*
 <sup>*</sup> Equal contribution
+
 
 ![Illustration](./img/overview.png)
 
