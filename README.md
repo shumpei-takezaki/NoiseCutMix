@@ -26,7 +26,7 @@ source .venv/bin/activate # activate virtual enviroment
 
 ```
 ckpts
-├── cub                                                                                                                                                                                                                                          -packages/
+├── cub                                                                                                                                                                                                                                          
 │   └── shot-1-lora-rank10
 │       ├── learned_embeds-steps-last.bin                                                                                                                                                                                                        -packages/
 │       └── pytorch_lora_weights.safetensors
@@ -42,15 +42,16 @@ ckpts
 If you want to perform fine-tuning on their own datasets, please see original repository, [Diff-Mix](https://github.com/Zhicaiwww/Diff-Mix/blob/master/README.md#customized-fine-tuning) 
 
 # Usage
-If you just want to generate images:
+If just generate images:
 ```.bash
-python3.9 example.py --output_dir=./outputs --device_cuda --data_name=cub --ckpt_path=./ckpts/cub/shot-1-lora-rank10 --num_gen=8 --guidance_scale=7.5 --num_inference_steps=25 --alpha_1.0
+python3.9 generation.py --output_dir=./outputs --device=cuda --data_name=cub --ckpt_path=./ckpts/cub/shot-1-lora-rank10 --num_gen=8 --guidance_scale=7.5 --num_inference_steps=25 --alpha=1.0
 ```
 
-If you just want to make augmented images and soft labels,
+If make augmented images, masks, and soft labels,
 ```.bash
-python3.9 generation.py 
+python3.9 augmentation.py --output_dir=./outputs --device=cuda --data_name=cub --ckpt_path=./ckpts/cub/shot-1-lora-rank10 --batch_size=8 --num_aug=1000 --guidance_scale=7.5 --num_inference_steps=25 --alpha=1.0
 ```
+`image` and `mask` folder, and `soft_label.npy`
 
 ## Citation
 coming soon..

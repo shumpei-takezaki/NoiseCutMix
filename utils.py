@@ -15,6 +15,14 @@ from pipeline import NoiseCutMixPipeline
 ERROR_MESSAGE = "Tokenizer already contains the token {token}. \
 Please pass a different `token` that is not already in the tokenizer."
 
+def num_to_groups(num, divisor):
+    groups = num // divisor
+    remainder = num % divisor
+    arr = [divisor] * groups
+    if remainder > 0:
+        arr.append(remainder)
+    return arr
+
 def name_to_classes(data_name):
 
     with open(f"config/{data_name}.json", "r") as f:
