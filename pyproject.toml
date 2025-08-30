@@ -1,0 +1,26 @@
+[project]
+name = "noisecutmix"
+version = "0.1.0"
+description = "sNoiseCutMix project"
+readme = "README.md"
+requires-python = ">=3.9,<3.10"
+
+dependencies = [
+    "accelerate==0.32.0",
+    "diffusers==0.25.1",
+    "huggingface-hub==0.25.2",
+    "numpy>=1.17,<2.0.0",
+    "peft==0.10.0",
+    "torch==2.4.1",
+    "transformers==4.37.2",
+]
+
+[tool.uv.sources]
+torch = [
+    { index = "torch-cu124" },
+]
+
+[[tool.uv.index]]
+name = "torch-cu124"
+url = "https://download.pytorch.org/whl/cu124"
+explicit = true

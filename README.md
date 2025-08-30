@@ -17,8 +17,8 @@ Shumpei Takezaki\*, Ryoma Bise, Shinnosuke Matsuo\* (\* Equal contribution)
 ```.bash
 git clone https://github.com/shumpei-takezaki/NoiseCutMix.git
 cd NoiseCutMix
-uv sync
-source .venv/bin/activate # activate virtual enviroment
+uv venv && uv sync # create enviroments
+source .venv/bin/activate # activate
 ```
 
 # Download pretrained weights for stable diffusion
@@ -44,12 +44,12 @@ If you want to perform fine-tuning on their own datasets, please see original re
 # Usage
 If just generate images:
 ```.bash
-python3.9 generation.py --output_dir=./outputs --device=cuda --data_name=cub --ckpt_path=./ckpts/cub/shot-1-lora-rank10 --num_gen=8 --guidance_scale=7.5 --num_inference_steps=25 --alpha=1.0
+python generation.py --output_dir=./outputs --device=cuda --data_name=cub --ckpt_path=./ckpts/cub/shot-1-lora-rank10 --num_gen=8 --guidance_scale=7.5 --num_inference_steps=25 --alpha=1.0
 ```
 
 If make augmented images, masks, and soft labels,
 ```.bash
-python3.9 augmentation.py --output_dir=./outputs --device=cuda --data_name=cub --ckpt_path=./ckpts/cub/shot-1-lora-rank10 --batch_size=8 --num_aug=1000 --guidance_scale=7.5 --num_inference_steps=25 --alpha=1.0
+python augmentation.py --output_dir=./outputs --device=cuda --data_name=cub --ckpt_path=./ckpts/cub/shot-1-lora-rank10 --batch_size=8 --num_aug=1000 --guidance_scale=7.5 --num_inference_steps=25 --alpha=1.0
 ```
 `image` and `mask` folder, and `soft_label.npy`
 
