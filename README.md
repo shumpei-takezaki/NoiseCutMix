@@ -17,7 +17,7 @@ Shumpei Takezaki\*, Ryoma Bise, Shinnosuke Matsuo\* (\* Equal contribution)
 ```.bash
 git clone https://github.com/shumpei-takezaki/NoiseCutMix.git
 cd NoiseCutMix
-uv venv && uv sync # create enviroments
+uv venv --python 3.9 && uv sync # create enviroments
 source .venv/bin/activate # activate
 ```
 
