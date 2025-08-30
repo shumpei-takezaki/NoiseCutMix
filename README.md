@@ -11,7 +11,7 @@ Shumpei Takezaki\*, Ryoma Bise, Shinnosuke Matsuo\* (\* Equal contribution)
 * Linux and Windows are supported, but we recommend Linux for performance and compatibility reasons.
 * High-end NVIDIA GPUs and [Nvidia Driver](https://documentation.ubuntu.com/server/how-to/graphics/install-nvidia-drivers/).
 * 64-bit [Python](https://www.python.org/) 3.9 and [PyTorch](https://pytorch.org) 2.4.1 and [Diffusers](https://github.com/huggingface/diffusers) 0.25.1
-* (Recommendd) [uv](https://github.com/astral-sh/uv) for creating virtual enviroments.
+* (Recommend) [uv](https://github.com/astral-sh/uv) for creating virtual enviroments.
 
 ## Getting started (on uv)
 ```.bash
@@ -42,9 +42,14 @@ ckpts
 If you want to perform fine-tuning on their own datasets, please see original repository, [Diff-Mix](https://github.com/Zhicaiwww/Diff-Mix/blob/master/README.md#customized-fine-tuning) 
 
 # Usage
-If you just generate images,
+If you just want to generate images:
 ```.bash
-python3.9 example.py 
+python3.9 example.py --output_dir=./outputs --device_cuda --data_name=cub --ckpt_path=./ckpts/cub/shot-1-lora-rank10 --num_gen=8 --guidance_scale=7.5 --num_inference_steps=25 --alpha_1.0
+```
+
+If you just want to make augmented images and soft labels,
+```.bash
+python3.9 generation.py 
 ```
 
 ## Citation

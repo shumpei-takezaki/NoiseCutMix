@@ -6,7 +6,7 @@ from PIL import Image
 
 import numpy as np
 
-from utils import make_pipeline,  make_mask_and_ratio
+from utils import make_pipeline, make_mask_and_ratio, name_to_classes, name_to_meta_class
 
 class NoiseCutMixGenerator(object):
 
@@ -14,11 +14,12 @@ class NoiseCutMixGenerator(object):
 
     def __init__(
         self,
+        device="cuda",
         data_name = 'cub',
         ckpt_path: str = None,
-        device="cuda",
         guidance_scale: float = 7.5,
         num_inference_steps: int = 25,
+        alpha: float = 1.0,
         class_names: List[str] = None,
         meta_class: str = None,
         **kwargs,
@@ -32,14 +33,14 @@ class NoiseCutMixGenerator(object):
         )
 
         self.class_names = name_to_classes(data_name) if class_names is None else class_names
-        self.meta_class = name_to_meta_class(data_name) if class_names is None else meta_class
+        self.meta_class = name_to_meta_class(data_name) if meta_class is None else meta_class
         self.num_classes = len(self.class_names)
 
         self.original_labels = [i for i in range(self.num_classes)]
 
-        self.data_name = data_name
         self.guidance_scale = guidance_scale
         self.num_inference_steps = num_inference_steps
+        self.alpha = alpha
 
     def get_aug_mask_and_label(self, target_labels: List[int], resolution: int=512) -> Tuple[List[Image.Image], List[int], List[float]]:
         aug_label = []
@@ -52,7 +53,7 @@ class NoiseCutMixGenerator(object):
 
             mask, mask_ratio = make_mask_and_ratio(
                 size = (resolution,resolution,1),
-                alpha=self.aplha,
+                alpha=self.alpha,
             )
             
             aug_label.append(label)

@@ -1,6 +1,7 @@
 import os
 from typing import Tuple
 from PIL import Image
+import json
 
 import numpy as np
 from tqdm.auto import tqdm
@@ -13,6 +14,20 @@ from pipeline import NoiseCutMixPipeline
 
 ERROR_MESSAGE = "Tokenizer already contains the token {token}. \
 Please pass a different `token` that is not already in the tokenizer."
+
+def name_to_classes(data_name):
+
+    with open(f"config/{data_name}.json", "r") as f:
+        data = json.load(f)
+    
+    return data['classes']
+
+def name_to_meta_class(data_name):
+
+    with open(f"config/{data_name}.json", "r") as f:
+        data = json.load(f)
+    
+    return data['meta_class']
 
 def make_mask_and_ratio(size: Tuple[int, ...], alpha: float) -> Image.Image:
     """
