@@ -1,7 +1,7 @@
 [project]
 name = "noisecutmix"
 version = "0.1.0"
-description = "sNoiseCutMix project"
+description = "NoiseCutMix project"
 readme = "README.md"
 requires-python = ">=3.9,<3.10"
 

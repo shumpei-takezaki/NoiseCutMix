@@ -9,7 +9,7 @@ Shumpei Takezaki\*, Ryoma Bise, Shinnosuke Matsuo\* (\* Equal contribution)
 
 ## Requirements
 * Linux and Windows are supported, but we recommend Linux for performance and compatibility reasons.
-* High-end NVIDIA GPUs and [Nvidia Driver](https://documentation.ubuntu.com/server/how-to/graphics/install-nvidia-drivers/).
+* High-end NVIDIA GPUs and [Nvidia Driver](https://documentation.ubuntu.com/server/how-to/graphics/install-nvidia-drivers/) (>= 12.4).
 * 64-bit [Python](https://www.python.org/) 3.9 and [PyTorch](https://pytorch.org) 2.4.1 and [Diffusers](https://github.com/huggingface/diffusers) 0.25.1
 * (Recommend) [uv](https://github.com/astral-sh/uv) for creating virtual enviroments.
 
