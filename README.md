@@ -17,8 +17,10 @@ Shumpei Takezaki\*, Ryoma Bise, Shinnosuke Matsuo\* (\* Equal contribution)
 ```.bash
 git clone https://github.com/shumpei-takezaki/NoiseCutMix.git
 cd NoiseCutMix
-uv venv --python 3.9 && uv sync # create enviroments
+uv python install 3.9 # if you haven't installed python
+uv venv --python 3.9
 source .venv/bin/activate # activate
+uv sync
 ```
 
 # Download pretrained weights for stable diffusion
